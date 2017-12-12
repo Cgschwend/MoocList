@@ -22,8 +22,6 @@
 
             <div class="logo navbar-header">
 
-                <!-- <img src="/clover.png" style="width:30px;height:30px" alt="Tech Jobs"/> -->
-
                 <header>
                     <h2 class="site_navbar_title">Local Technology Job Listings</h2>
                 </header>
@@ -38,17 +36,10 @@
 
     <div class="container">
 
-        <!-- <header>
-            <h2>Local Area Technology Job Listings</h2>
-        </header> -->
-
-
-    <!-- <h2>Job List</h2> -->
     <div th:unless="${#lists.isEmpty(jobs)}">
         <dl th:each="job : ${jobs}">
             <article>
             <dt class="jobHeadline">
-
 
 
                 <article class="media well listing-item listing-item__jobs  ">
@@ -72,7 +63,6 @@
                         </div>
                         <div class="listing-item__desc hidden-sm hidden-xs">
                         Job Description:
-                            <!-- <span th:text="${job.categories}"></span> -->
                             <span th:text="${job.description}"></span>
                         </div>
 
@@ -93,16 +83,6 @@
 
                 </article>
 
-
-
-
-             <!--   <img th:src="${{job.image_url}}" style="width:80px;height:28px" alt="Company Icon" />
-                    <a th:href="@{/job/jobDetail/{id}(id=${job.id})}"
-
-                th:text="${job.title}">Title</a> by
-                <span th:text="${job.company}">Company</span>
-                <span th:text="${job.postdate}">Post Date</span>
-                <span th:text="${job.categories}"></span>   -->
 
             </dt>
             </article>
@@ -129,6 +109,7 @@
             <div th:unless="${#lists.isEmpty(meetups)}">
              <dl th:each="meetup : ${meetups}" class="meetup-list-group-item">
 
+
                  <span  th:if="${meetup.highres_link}!=null">
                      <img th:src="${meetup.highres_link}" style="width:20px;height:20px"/>
                  </span>
@@ -147,15 +128,6 @@
     </form>
 
     </div>
-
-    <!-- /* Footer Fragment to be included on each page */ -->
-    <!-- <footer id="center-footer" class="footer" th:fragment="footer">
-        <div id="footerText" class="span12" >
-            <div class="container">
-            <span> &copy; 2017   Carol Gschwend  </span>
-            </div>
-        </div>
-    </footer> -->
 
 
     <footer id="center-footer" class="footer" th:fragment="footer">

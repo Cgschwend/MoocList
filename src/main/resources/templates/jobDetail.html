@@ -1,8 +1,6 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-
-<!-- <head th:include="jobList :: [//head]" /> -->
 <head id="headerFragment" th:fragment="headerFragment">
     <title>Job Detail</title>
     <link rel="icon" type="image/png" th:href="@{/clover.png}"></link>
@@ -24,8 +22,6 @@
 
         <div class="logo navbar-header">
 
-            <!-- <img src="/clover.png" style="width:30px;height:30px" alt="Tech Jobs"/> -->
-
             <header>
                 <h2 class="site_navbar_title">Local Technology Job Listings</h2>
             </header>
@@ -33,7 +29,6 @@
         </div>
 
     </div>
-
 
 
 </nav>
@@ -45,15 +40,12 @@
     </header>
 
 
-
-<!-- <h2>Job Detail</h2> -->
-
     <div th:unless="${#lists.isEmpty(jobDetails)}">
         <dl th:each="job : ${jobDetails}">
 
         <dt class="jobHeadline">
 
-            <img th:src="${{job.image_url}}" style="width:150px;height:60px" alt="Company Icon" />
+            <img class="media-object profile__img-company" th:src="${{job.image_url}}"  alt="Company Icon"/>
             <span th:text="${job.title}">Title</span>
             <p> </p>
             <span th:text="${job.postdate}">Post Date</span>
@@ -68,9 +60,7 @@
             <a th:href="${job.job_url}"
                th:text="${job.job_url}"></a>
 
-
             <hr/>
-
 
         <h5>Find recommended moocs:</h5>
 
@@ -79,7 +69,6 @@
             <button><input class="mooc-button" type="image" name="moocs" th:value="${job.skills_tags}">
                 <img src="/clover.png" style="width:20px;height:20px" alt="Meetup Icon"/> </input></button>
 
-             <!--<div layout:fragment="moocList"></div> -->
             <div th:include="moocList :: moocList"></div>
 
         </form>
@@ -90,32 +79,29 @@
     </div>
 
 
-
 <div th:if="${#lists.isEmpty(jobDetails)}">
     <p>There are no details in the job list</p>
 </div>
-
-
 
 
     <div class="container" th:layout:fragment="moocList">
 
         <content id="center-content">
 
-
-
             <div th:unless="${#lists.isEmpty(moocs)}">
                 <h2></h2>
                 <dl th:each="mooc : ${moocs}">
 
                     <dt class="moocHeadline">
-                        <img th:src="${{mooc.imageUrl}}" style="width:80px;height:24px" alt="Mooc Provider Icon" />
-                        <a th:href="${mooc.moocUrl}"
-                           th:text="${mooc.title}">Title</a> by
-                        <span th:text="${mooc.provider}">Provider</span>
-                        (views: <span th:text="${mooc.views}">views</span>)
-                        (ratings: <span th:text="${mooc.ratings}">ratings</span>)
-                        (subject tags: <span th:text="${mooc.subjectTags}">subjectTags</span>)
+
+                            <img th:src="${{mooc.imageUrl}}" style="width:80px;height:24px" alt="Mooc Provider Icon" />
+                            <a th:href="${mooc.moocUrl}"
+                               th:text="${mooc.title}">Title</a> by
+                            <span th:text="${mooc.provider}">Provider</span>
+                            (views: <span th:text="${mooc.views}">views</span>)
+                            (ratings: <span th:text="${mooc.ratings}">ratings</span>)
+                            (subject tags: <span th:text="${mooc.subjectTags}">subjectTags</span>)
+
                     </dt>
 
 
@@ -131,7 +117,6 @@
 
 </div>
 
-<!-- <div th:include="jobList :: [//footer[@id='center-footer']]"></div> -->
 
 <footer id="center-footer" class="footer" th:fragment="footer">
 
