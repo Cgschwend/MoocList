@@ -6,17 +6,41 @@
     <title>Job List</title>
     <link rel="icon" type="image/png" th:href="@{/clover.png}"></link>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css}" href="@{https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css}"></link>
+
+
     <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}" href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}"></link>
     <link rel="stylesheet" type="text/css" href="../styleNow.css" th:href="@{/styleNow.css}"></link>
 </head>
 
 <body>
 
+    <nav class="navbar navbar-default ">
+
+        <div class="container container-fluid">
+
+            <div class="logo navbar-header">
+
+                <!-- <img src="/clover.png" style="width:30px;height:30px" alt="Tech Jobs"/> -->
+
+                <header>
+                    <h2 class="site_navbar_title">Local Technology Job Listings</h2>
+                </header>
+
+            </div>
+
+        </div>
+
+
+
+    </nav>
+
     <div class="container">
 
-        <header>
+        <!-- <header>
             <h2>Local Area Technology Job Listings</h2>
-        </header>
+        </header> -->
 
 
     <!-- <h2>Job List</h2> -->
@@ -25,13 +49,60 @@
             <article>
             <dt class="jobHeadline">
 
-                <img th:src="${{job.image_url}}" style="width:80px;height:28px" alt="Company Icon" />
+
+
+                <article class="media well listing-item listing-item__jobs  ">
+
+                    <div class="media-left listing-item__logo">
+                        <a th:href="@{/job/jobDetail/{id}(id=${job.id})}">
+                           <!-- <img class="media-object profile__img-company" th:src="${{job.image_url}}" style="width:80px;height:28px" alt="Company Icon"/> -->
+                            <img class="media-object profile__img-company" th:src="${{job.image_url}}"  alt="Company Icon"/>
+                        </a>
+                    </div>
+
+                    <div class="media-body">
+                        <div class="media-heading listing-item__title">
+                            <a th:href="@{/job/jobDetail/{id}(id=${job.id})}" class="link" th:text="${job.title}"></a>
+                        </div>
+
+                        <div class="listing-item__info clearfix">
+                            <span class="listing-item__info--item listing-item__info--item-company"
+                               th:text="${job.categories}">
+                            </span>
+                        </div>
+                        <div class="listing-item__desc hidden-sm hidden-xs">
+                        Job Description:
+                            <!-- <span th:text="${job.categories}"></span> -->
+                            <span th:text="${job.description}"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="media-right text-right">
+                        <div class="listing-item__date">
+                            <span th:text="${job.postdate}">Post Date</span>
+                        </div>
+                    </div>
+
+                    <div class="listing-item__desc visible-sm visible-xs">
+                        Job Description:
+                        <span th:text="${job.categories}"></span>
+                        <span th:text="${job.description}"></span>
+                    </div>
+
+
+                </article>
+
+
+
+
+             <!--   <img th:src="${{job.image_url}}" style="width:80px;height:28px" alt="Company Icon" />
                     <a th:href="@{/job/jobDetail/{id}(id=${job.id})}"
 
                 th:text="${job.title}">Title</a> by
                 <span th:text="${job.company}">Company</span>
                 <span th:text="${job.postdate}">Post Date</span>
-                <span th:text="${job.categories}"></span>
+                <span th:text="${job.categories}"></span>   -->
 
             </dt>
             </article>
@@ -78,10 +149,26 @@
     </div>
 
     <!-- /* Footer Fragment to be included on each page */ -->
-    <footer id="center-footer" th:fragment="footer">
+    <!-- <footer id="center-footer" class="footer" th:fragment="footer">
         <div id="footerText" class="span12" >
+            <div class="container">
             <span> &copy; 2017   Carol Gschwend  </span>
+            </div>
         </div>
+    </footer> -->
+
+
+    <footer id="center-footer" class="footer" th:fragment="footer">
+
+        <div id="footerText" class="container" >
+
+        <div>
+            <span> &copy;&nbsp;2017&nbsp;Carol&nbsp;Gschwend</span>
+            <div>View code <a href="https://github.com/Cgschwend/MoocList" target="_blank">@ GitHub</a></div>
+        </div>
+
+        </div>
+
     </footer>
 
 </body>
