@@ -1,0 +1,8 @@
+Mooclist is a Spring-Boot application that displays local tech jobs and offers two features not currently found on other job listing sites:
+
+1.  A feature to show local technology Meetup groups using  Meetup's API.
+
+2.  A feature to see recommended MOOC that relate to a particular job listing.
+
+Mooclist has been redesigned into two independent applications, MoocClient and MoocService.
+
